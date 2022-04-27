@@ -1,0 +1,10 @@
+std dev on a seat-by-seat basis (both fed and state polls)
+state polls in accuracy, shifts and sim
+calculations for LNP/ALP v minor seats
+distribute sim2 shift pcts by likelihood somehow
+change poll accuracy shifts from linear to prediction
+
+http://freerangestats.info/elections/oz-2019/index.html
+http://freerangestats.info/blog/voting.html
+https://www.abc.net.au/news/elections/federal/2022/guide/electorates
+https://en.wikipedia.org/wiki/Opinion_polling_for_the_2022_Australian_federal_election
