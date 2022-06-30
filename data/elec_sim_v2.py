@@ -86,20 +86,21 @@ totals_counted = collections.Counter(totals)
 totals_by_pct = {}
 fracs_by_pct = {}
 for pct in shift_pcts:
-    totals_by_pct[pct] = [totals_counted[(
-        seats + num_indirect_electorates, pct)] for seats in range(60, 81)]
+    totals_by_pct[pct] = [totals_counted[(seats - num_indirect_electorates, pct)] for seats in range(0, 152)]
     total = sum(totals_by_pct[pct])
     fracs_by_pct[pct] = [i / total for i in totals_by_pct[pct]]
 
-fracs_by_pct = np.rot90(list(fracs_by_pct.values()))
+fracs_by_pct = np.flipud(np.rot90(list(fracs_by_pct.values())))
 colors = n_colors('rgb(255, 255, 255)',
                   'rgb(75, 140, 48)', 30, colortype='rgb')
 colors_by_pct = np.vectorize(lambda x: colors[round(x * 100)])(fracs_by_pct)
 
+# print({k: v / sum(totals_by_pct[k[1]]) for k, v in dict(totals_counted).items()})
 fig = go.Figure(data=[go.Table(
-    header=dict(values=list(range(60, 81))),
-    cells=dict(values=np.vectorize(lambda x: f'{round(x * 100)}%')(fracs_by_pct), fill_color=colors_by_pct))])
-fig.update_layout(title=dict(text="Number of LNP seats won by chance (top row is 2019 inaccuracy, bottom row is normal inaccuracy)",
+    header=dict(values=list(range(0, 152))[60:85]),
+    cells=dict(values=np.vectorize(lambda x: f'{round(x * 100)}%')(fracs_by_pct)[60:85],
+               fill_color=colors_by_pct[60:85]))])
+fig.update_layout(title=dict(text="Number of LNP seats won by chance (top row is fairly good accuracy, bottom row is 2019-like inaccuracy)",
                              font=dict(color='black')))
 fig.show()
 

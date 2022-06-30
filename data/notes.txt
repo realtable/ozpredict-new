@@ -1,8 +1,10 @@
 std dev on a seat-by-seat basis (both fed and state polls)
+models on a polling place level?
 state polls in accuracy, shifts and sim
 calculations for LNP/ALP v minor seats
-distribute sim2 shift pcts by likelihood somehow
+distribute sim2 shift pcts by likelihood (via indiv polls?)
 change poll accuracy shifts from linear to prediction
+use tpp over tcp for other electorates
 
 http://freerangestats.info/elections/oz-2019/index.html
 http://freerangestats.info/blog/voting.html
